@@ -1,0 +1,110 @@
+<!doctype html>
+<HTML>
+<HEAD>
+<META CHARSET="UTF-8">
+<TITLE>Tenthmatrix</TITLE>
+<link REL="STYLESHEET" TYPE="TEXT/CSS" HREF="css/bootstrap.css"  >
+<style>
+
+.container{
+	width: 90%;
+}
+
+.img-responsive{
+	max-width: 95%;
+}
+
+input[type=checkbox].css-checkbox {
+							position:absolute; z-index:-1000; left:-1000px; overflow: hidden; clip: rect(0 0 0 0); height:1px; width:1px; margin:-1px; padding:0; border:0;
+						}
+
+						input[type=checkbox].css-checkbox + label.css-label {
+							padding-left:36px;							
+							display:inline-block;
+							background-repeat:no-repeat;
+							background-position: 0 0;
+							font-size:17px;
+							vertical-align:middle;
+							cursor:pointer;
+							text-align: left;
+							height: 21px;
+							line-height: 21px;
+
+		}
+				input[type=checkbox].css-checkbox:checked + label.css-label {
+				background-position: 0 -18px;
+				}
+	
+	label.css-label {
+				background-image:url(images/checkbox.png);
+				-webkit-touch-callout: none;
+				-webkit-user-select: none;
+				-khtml-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+			}
+
+
+</style>
+</HEAD>
+<BODY>
+<div CLASS="container" >
+<div STYLE="background-color:aliceblue; border-radius:4px; padding-top:20px; padding-bottom:20px; margin-top: 70px;">
+<div CLASS="row" ALIGN="CENTER">
+<div CLASS="col-md-12 mrgntp20 ">
+<IMG SRC="images/logo.png" CLASS="img-responsive" ALT=""/> </div>
+</div>
+
+
+<div CLASS="row mrgntp20" ALIGN="CENTER">
+<form CLASS="form-horizontal">
+<div class="form-group mrgntp20">
+<input type="checkbox" name="checkbox1" id="checkbox1" class="css-checkbox" />
+									<label for="checkbox1" class="css-label"  STYLE="width:100px;">Production</label>
+</div>
+  
+  <div class="form-group control-group">
+  
+  <input type="checkbox" name="checkbox2" id="checkbox2" class="css-checkbox" />
+									<label for="checkbox2" class="css-label"  STYLE="width:100px;">Staging</label>
+  </div>
+  
+  
+  <div class="form-group control-group">
+  
+  <input type="checkbox" name="checkbox3" id="checkbox3" class="css-checkbox" />
+									<label for="checkbox3" class="css-label"  STYLE="width:100px;">Dev</label>
+  </div>
+  
+  
+
+
+
+
+
+
+
+
+  
+  
+  
+  </form>
+
+
+</div>
+
+
+<div CLASS="row" ALIGN="CENTER">
+
+
+<div CLASS="col-md-12 mrgntp20">
+<BUTTON CLASS="btn btn-primary" style="width: 200px;">Submit</BUTTON>
+
+</div>
+</div>
+</div>
+</div>
+
+</BODY>
+</HTML>
