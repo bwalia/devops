@@ -1,4 +1,4 @@
-### Kubernetes Setup
+### Kubernetes Setup - Day 1 - Typical Task 2
 
 Here's a simple **bash script** `k3s_create_cluster.sh` to install **k3s** without a custom `config.yaml`. This assumes you're installing on a **Linux** system (like Ubuntu or CentOS), and you have root/sudo privileges.
 
@@ -54,7 +54,7 @@ echo "sudo sh -c 'echo \"$K3S_LB_IP k3s.local\" >> /etc/hosts && echo \"$K3S_LB_
 
 
 
-### To destroy the k3s cluster
+### Note: To destroy the k3s cluster
 
 Run the following command:
 
