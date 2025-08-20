@@ -1,15 +1,5 @@
 #!/bin/bash
 
-multipass delete --purge k3s-master k3s-worker1 k3s-worker2 2>/dev/null
-
-multipass launch --name k3s-master --cpus 2 --memory 2G --disk 5G
-multipass launch --name k3s-worker1 --cpus 2 --memory 4G --disk 30G
-multipass launch --name k3s-worker2 --cpus 2 --memory 4G --disk 30G
-
-multipass exec k3s-master -- sudo apt update
-multipass exec k3s-master -- sudo apt upgrade
-multipass exec k3s-master -- sudo apt install -y curl wget
-
 multipass exec k3s-master -- bash -c "curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION='v1.33.1+k3s1' INSTALL_K3S_EXEC='--disable=traefik' sh -s - --node-taint CriticalAddonsOnly=true:NoExecute"
 
 multipass exec k3s-worker1 -- sudo apt update
@@ -44,8 +34,8 @@ while [ -z "$K3S_LB_IP" ]; do
 done
 
 echo "k3s Kubernetes cluster created successfully"
-echo "Master IP: $K3S_URL"
-echo "LoadBalancer IP: $K3S_LB_IP"
+echo "k3s Master Node IP: $K3S_URL"
+echo "k3s LoadBalancer IP: $K3S_LB_IP"
 echo ""
 echo "Add to /etc/hosts:"
 echo "$K3S_LB_IP k3s.local"
