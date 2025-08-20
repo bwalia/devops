@@ -1,0 +1,62 @@
+Here's a simple **bash script** to install **k3s** with a custom `config.yaml`. This assumes you're installing on a **Linux** system (like Ubuntu or CentOS), and you have root/sudo privileges.
+
+---
+
+### 📄 `install-k3s.sh`
+
+```bash
+#!/bin/bash
+
+set -e
+
+# Define path to config file
+CONFIG_FILE="/etc/rancher/k3s/config.yaml"
+
+# Ensure the config directory exists
+sudo mkdir -p /etc/rancher/k3s
+
+# Copy your config.yaml to the correct location
+# Make sure your config.yaml is in the same directory as this script, or change the path
+if [ -f "./config.yaml" ]; then
+    sudo cp ./config.yaml "$CONFIG_FILE"
+    echo "[+] Copied config.yaml to $CONFIG_FILE"
+else
+    echo "[!] config.yaml not found in current directory. Aborting."
+    exit 1
+fi
+
+# Download and install k3s using the config
+curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="server" sh -
+
+# Confirm installation
+if command -v k3s >/dev/null 2>&1; then
+    echo "[+] k3s installed successfully."
+    sudo k3s kubectl get nodes
+else
+    echo "[!] k3s installation failed."
+    exit 1
+fi
+```
+
+---
+
+### 🛠️ Notes:
+
+* **Custom `config.yaml`** should define your desired options, for example:
+
+  ```yaml
+  write-kubeconfig-mode: "644"
+  disable:
+    - traefik
+  tls-san:
+    - "my.domain.com"
+  ```
+* You can also pass options via `INSTALL_K3S_EXEC="server"` for additional CLI flags.
+* Run the script with:
+
+  ```bash
+  chmod +x install-k3s.sh
+  ./install-k3s.sh
+  ```
+
+Would you like an example `config.yaml` as well?
