@@ -1,3 +1,5 @@
+### Infrastructure Setup
+
 Here is a simple **bash script** to create latest ubuntu VMs on a Mac for **k3s** kubernetes cluster.
 ---
 

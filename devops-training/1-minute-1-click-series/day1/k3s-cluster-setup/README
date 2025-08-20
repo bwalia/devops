@@ -1,3 +1,5 @@
+### Kubernetes Setup
+
 Here's a simple **bash script** to install **k3s** without a custom `config.yaml`. This assumes you're installing on a **Linux** system (like Ubuntu or CentOS), and you have root/sudo privileges.
 
 ### 📄 `k3s_create_cluster.sh`
