@@ -1,6 +1,6 @@
 ### Infrastructure Setup
 
-Here is a simple **bash script** to create latest ubuntu VMs on a Mac for **k3s** kubernetes cluster.
+Here is a simple **bash script** `infra_provision_vms.sh` to create latest ubuntu VMs on a Mac for **k3s** kubernetes cluster.
 ---
 
 #!/bin/bash
@@ -29,3 +29,11 @@ multipass info k3s-master
 multipass info k3s-worker1
 multipass info k3s-worker2
 ---
+
+### Note: To destroy the infrastructure
+
+Run the following command:
+
+```bash
+./infra_destroy_vms.sh
+```

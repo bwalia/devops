@@ -23,3 +23,5 @@ multipass ls
 multipass info k3s-master
 multipass info k3s-worker1
 multipass info k3s-worker2
+
+echo "Infra - multipass Ubuntu VMs created successfully"
