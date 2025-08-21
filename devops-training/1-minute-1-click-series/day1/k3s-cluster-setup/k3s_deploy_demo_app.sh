@@ -61,3 +61,6 @@ spec:
               number: 80
 
 EOF
+
+HOSTNAME="k3s-demo-app.local"
+open http://$HOSTNAME

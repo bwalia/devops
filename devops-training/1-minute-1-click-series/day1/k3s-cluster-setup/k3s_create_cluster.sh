@@ -88,4 +88,4 @@ fi
 
 echo "[✓] /etc/hosts updated."
 
-open http://$HOSTNAME
+open http://$K3S_LB_IP
