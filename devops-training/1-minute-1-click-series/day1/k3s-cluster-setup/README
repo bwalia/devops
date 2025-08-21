@@ -45,10 +45,10 @@ echo "k3s Master Node IP: $K3S_URL"
 echo "k3s LoadBalancer IP: $K3S_LB_IP"
 echo ""
 echo "Add to /etc/hosts:"
-echo "$K3S_LB_IP k3s.local"
+echo "$K3S_LB_IP k3s-demo-app.local"
 echo ""
 echo "command:"
-echo "sudo sh -c 'echo \"$K3S_LB_IP k3s.local\" >> /etc/hosts && echo \"$K3S_LB_IP k3s.local\" >> /etc/hosts'"
+echo "sudo sh -c 'echo \"$K3S_LB_IP k3s-demo-app.local\" >> /etc/hosts && echo \"$K3S_LB_IP k3s-demo-app.local\" >> /etc/hosts'"
 
 ---
 

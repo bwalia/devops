@@ -1,6 +1,6 @@
 #!/bin/bash
 
-HOST_ENTRY="k3s.local"
+HOST_ENTRY="k3s-demo-app.local"
 HOSTS_FILE="/etc/hosts"
 
 echo "[+] Removing lines matching '$HOST_ENTRY' from $HOSTS_FILE"

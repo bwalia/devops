@@ -46,10 +46,10 @@ spec:
   ingressClassName: nginx
 #   tls:
 #   - hosts:
-#     - k3s.local
+#     - k3s-demo-app.local
 #     secretName: gitlab-tls
   rules:
-  - host: k3s.local
+  - host: k3s-demo-app.local
     http:
       paths:
       - path: /

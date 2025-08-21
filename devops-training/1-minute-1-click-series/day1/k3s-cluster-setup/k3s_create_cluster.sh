@@ -63,7 +63,7 @@ echo "k3s Kubernetes cluster created successfully"
 echo "k3s nodes:"
 
 kubectl get node -o wide
-HOSTNAME="k3s.local"
+HOSTNAME="k3s-demo-app.local"
 
 echo "k3s Master Node IP: $K3S_URL"
 echo "k3s LoadBalancer IP: $K3S_LB_IP"
