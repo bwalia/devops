@@ -62,7 +62,8 @@ Run the following bash script:
 ./k3s_destroy_cluster.sh
 ```
 
-### Note: To deploy kuard demo app in the new cluster run
+### Note: To deploy kuard demo app in the new cluster run.
+#### For amd64/arm64 architecture change the `k3s_deploy_demo_app.sh` accordingly.
 
 Run the following bash script:
 
