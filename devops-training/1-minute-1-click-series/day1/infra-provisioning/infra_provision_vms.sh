@@ -26,4 +26,4 @@ multipass info k3s-worker2
 
 echo "Infra - multipass Ubuntu VMs created successfully"
 
-sleep 30
+sleep 10
