@@ -87,3 +87,5 @@ else
 fi
 
 echo "[✓] /etc/hosts updated."
+
+open http://$HOSTNAME
