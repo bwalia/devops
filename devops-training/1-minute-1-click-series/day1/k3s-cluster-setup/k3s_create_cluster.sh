@@ -1,5 +1,32 @@
 #!/bin/bash
 
+VM_NAME="k3s-master"
+
+if multipass list | awk 'NR>1 {print $1}' | grep -qw "$VM_NAME"; then
+    echo "VM '$VM_NAME' exists."
+else
+    echo "VM '$VM_NAME' does not exist. Creating..."
+    bash $PWD/infra-provisioning/infra_provision_vms.sh
+fi
+
+VM_NAME="k3s-worker1"
+
+if multipass list | awk 'NR>1 {print $1}' | grep -qw "$VM_NAME"; then
+    echo "VM '$VM_NAME' exists."
+else
+    echo "VM '$VM_NAME' does not exist. Creating..."
+    bash $PWD/infra-provisioning/infra_provision_vms.sh
+fi
+
+VM_NAME="k3s-worker2"
+
+if multipass list | awk 'NR>1 {print $1}' | grep -qw "$VM_NAME"; then
+    echo "VM '$VM_NAME' exists."
+else
+    echo "VM '$VM_NAME' does not exist. Creating..."
+    bash $PWD/infra-provisioning/infra_provision_vms.sh
+fi
+
 multipass exec k3s-master -- bash -c "curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION='v1.33.1+k3s1' INSTALL_K3S_EXEC='--disable=traefik' sh -s - --node-taint CriticalAddonsOnly=true:NoExecute"
 
 multipass exec k3s-worker1 -- sudo apt update
@@ -20,7 +47,12 @@ mkdir -p ~/.kube
 multipass exec k3s-master -- sudo cat /etc/rancher/k3s/k3s.yaml > ~/.kube/k3s-config
 sed -i.bak "s/127.0.0.1/$K3S_URL/g" ~/.kube/k3s-config
 
-export KUBECONFIG=~/.kube/k3s-config
+echo "K3S cluster configuration completed."
+echo "You can now use kubectl with the K3S cluster."
+echo "To use kubectl, run the following commands:"
+echo "cat ~/.kube/k3s-config"
+echo "export KUBECONFIG=~/.kube/k3s-config"
+
 #   kubectl taint nodes k3s-master node-role.kubernetes.io/control-plane:NoSchedule
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.2/deploy/static/provider/cloud/deploy.yaml
 kubectl wait --namespace ingress-nginx --for=condition=ready pod --selector=app.kubernetes.io/component=controller --timeout=300s
@@ -34,6 +66,10 @@ while [ -z "$K3S_LB_IP" ]; do
 done
 
 echo "k3s Kubernetes cluster created successfully"
+echo "k3s nodes:"
+
+kubectl get node -o wide
+
 echo "k3s Master Node IP: $K3S_URL"
 echo "k3s LoadBalancer IP: $K3S_LB_IP"
 echo ""
@@ -42,3 +78,5 @@ echo "$K3S_LB_IP k3s.local"
 echo ""
 echo "command:"
 echo "sudo sh -c 'echo \"$K3S_LB_IP k3s.local\" >> /etc/hosts && echo \"$K3S_LB_IP k3s.local\" >> /etc/hosts'"
+
+bash $PWD/k3s-cluster-setup/k3s_update_lb_ip_in_localdns.sh

@@ -56,13 +56,21 @@ echo "sudo sh -c 'echo \"$K3S_LB_IP k3s.local\" >> /etc/hosts && echo \"$K3S_LB_
 
 ### Note: To destroy the k3s cluster
 
-Run the following command:
+Run the following bash script:
 
 ```bash
 ./k3s_destroy_cluster.sh
 ```
 
+### Note: To deploy kuard demo app in the new cluster run
 
+Run the following bash script:
+
+```bash
+./k3s_deploy_demo_app.sh
+```
+
+### Continue below to checkout extra tips to create k3s cluster using a lot more configuration options using config.yaml
 
 Here's a simple **bash script** to install **k3s** with a custom `config.yaml`. This assumes you're installing on a **Linux** system (like Ubuntu or CentOS), and you have root/sudo privileges.
 
