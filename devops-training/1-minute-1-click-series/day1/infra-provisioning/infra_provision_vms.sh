@@ -10,8 +10,6 @@ multipass exec k3s-master -- sudo apt update
 multipass exec k3s-master -- sudo apt upgrade
 multipass exec k3s-master -- sudo apt install -y curl wget
 
-multipass exec k3s-master -- bash -c "curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION='v1.33.1+k3s1' INSTALL_K3S_EXEC='--disable=traefik' sh -s - --node-taint CriticalAddonsOnly=true:NoExecute"
-
 multipass exec k3s-worker1 -- sudo apt update
 multipass exec k3s-worker1 -- sudo apt install -y curl wget
 
