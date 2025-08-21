@@ -74,3 +74,15 @@ echo "command:"
 echo "sudo sh -c 'echo \"$K3S_LB_IP k3s.local\" >> /etc/hosts'"
 
 bash $PWD/k3s-cluster-setup/k3s_update_lb_ip_in_localdns.sh
+HOSTNAME="k3s.local"
+
+# Check if the entry already exists
+if grep -q "$HOSTNAME" /etc/hosts; then
+    echo "[+] Updating existing entry for $HOSTNAME"
+    sudo sed -i '' "s/^.*$HOSTNAME\$/$K3S_LB_IP $HOSTNAME/" /etc/hosts
+else
+    echo "[+] Adding new entry: $K3S_LB_IP $HOSTNAME"
+    echo "$K3S_LB_IP $HOSTNAME" | sudo tee -a /etc/hosts > /dev/null
+fi
+
+echo "[✓] /etc/hosts updated."
