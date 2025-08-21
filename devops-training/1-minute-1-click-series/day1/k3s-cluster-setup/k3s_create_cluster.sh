@@ -74,3 +74,4 @@ echo "command:"
 echo "sudo sh -c 'echo \"$K3S_LB_IP k3s.local\" >> /etc/hosts && echo \"$K3S_LB_IP k3s.local\" >> /etc/hosts'"
 
 bash $PWD/k3s-cluster-setup/k3s_update_lb_ip_in_localdns.sh
+sudo sh -c 'echo \"$K3S_LB_IP k3s.local\" >> /etc/hosts && echo \"$K3S_LB_IP k3s.local\" >> /etc/hosts'

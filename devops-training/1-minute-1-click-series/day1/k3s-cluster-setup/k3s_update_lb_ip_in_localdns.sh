@@ -6,9 +6,9 @@ HOSTS_FILE="/etc/hosts"
 echo "[+] Removing lines matching '$HOST_ENTRY' from $HOSTS_FILE"
 
 # Backup before change
-sudo cp "$HOSTS_FILE" "$HOSTS_FILE.bak"
+cp "$HOSTS_FILE" "$HOSTS_FILE.bak"
 
 # Delete lines containing the host entry
-sudo sed -i "/${HOST_ENTRY//./\\.}/d" "$HOSTS_FILE"
+sed -i '' "/${HOST_ENTRY//./\\.}/d" "$HOSTS_FILE"
 
 echo "[+] Done. Backup saved as $HOSTS_FILE.bak"
