@@ -1,6 +1,7 @@
 ### Infrastructure Setup - Day 1 - Typical Task 1
 
-Here is a simple **bash script** `infra_provision_vms.sh` to create latest ubuntu VMs on a Mac for **k3s** kubernetes cluster.
+#   Here is a simple **bash script** `infra_provision_vms.sh` to create latest ubuntu VMs on a Mac using multipass.
+#   Typically you would use this script for **k3s** kubernetes cluster.
 ---
 
 #!/bin/bash
