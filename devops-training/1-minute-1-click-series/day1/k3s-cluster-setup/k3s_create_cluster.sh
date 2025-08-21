@@ -63,18 +63,19 @@ echo "k3s Kubernetes cluster created successfully"
 echo "k3s nodes:"
 
 kubectl get node -o wide
+HOSTNAME="k3s.local"
 
 echo "k3s Master Node IP: $K3S_URL"
 echo "k3s LoadBalancer IP: $K3S_LB_IP"
 echo ""
 echo "Add to /etc/hosts:"
-echo "$K3S_LB_IP k3s.local"
+echo "$K3S_LB_IP $HOSTNAME"
 echo ""
 echo "command:"
-echo "sudo sh -c 'echo \"$K3S_LB_IP k3s.local\" >> /etc/hosts'"
+echo "sudo sh -c 'echo \"$K3S_LB_IP $HOSTNAME\" >> /etc/hosts'"
 
 bash $PWD/k3s-cluster-setup/k3s_update_lb_ip_in_localdns.sh
-HOSTNAME="k3s.local"
+
 
 # Check if the entry already exists
 if grep -q "$HOSTNAME" /etc/hosts; then
