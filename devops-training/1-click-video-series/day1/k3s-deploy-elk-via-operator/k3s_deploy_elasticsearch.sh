@@ -1,7 +1,9 @@
 #!/bin/bash
 
 # Install the Elastic Operator
-helm install elastic-operator elastic/eck-operator -n elastic-system --create-namespace
+helm upgrade --install elastic-operator elastic/eck-operator -n elastic-system --create-namespace
+
+sleep 60
 
 cat <<EOF | kubectl apply -f -
 apiVersion: elasticsearch.k8s.elastic.co/v1
@@ -115,3 +117,11 @@ spec:
               port:
                 number: 9200
 EOF
+
+# get secret to login to your kibana ui
+
+echo "Kibana UI login password:"
+kubectl get secret quickstart-es-elastic-user -o go-template='{{.data.elastic | base64decode}}'
+
+echo ""
+echo "Visit this Github repository for more details - https://github.com/bwalia/devops.git"

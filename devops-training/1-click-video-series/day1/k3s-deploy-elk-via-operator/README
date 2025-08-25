@@ -22,3 +22,5 @@ Note: change the elastic search url to point to your elasticsearch cluster
 Note: use a domain name that points to your k3s elasticsearch cluster example
 
     elasticapi.workstation.co.uk
+
+echo "Visit this Github repository for more details - https://github.com/bwalia/devops.git"
