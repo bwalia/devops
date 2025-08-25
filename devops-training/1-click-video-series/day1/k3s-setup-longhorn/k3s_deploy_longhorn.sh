@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Check prerequisites using the Longhorn command line tool
+curl -sSfL https://raw.githubusercontent.com/longhorn/longhorn/v1.4.1/scripts/environment_check.sh | bash
+
 # Add the Longhorn Helm repository
 
 helm repo add longhorn https://charts.longhorn.io
