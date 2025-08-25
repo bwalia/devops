@@ -12,6 +12,9 @@ helm repo update
 
 helm install longhorn longhorn/longhorn --namespace longhorn-system --create-namespace --version 1.9.1
 
-# Confirm the deployment via pods are running
+# Check the status of the Longhorn deployment
+helm status longhorn -n longhorn-system
+
+# You should also confirm the deployment via state of the pods are running or not
 kubectl get pods -n longhorn-system
 
