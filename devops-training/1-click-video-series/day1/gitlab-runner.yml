@@ -1,0 +1,8 @@
+apiVersion: apps.gitlab.com/v1beta2
+kind: Runner
+metadata:
+  name: gitlab-runner
+spec:
+  gitlabUrl: https://gitlab.local
+  buildImage: alpine
+  token: gitlab-runner-secret

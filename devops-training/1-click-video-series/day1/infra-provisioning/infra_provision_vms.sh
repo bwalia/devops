@@ -28,4 +28,6 @@ multipass exec k3s-worker2 -- sudo apt install -y curl wget
 
 echo "Infra - multipass Ubuntu VMs OS packages updated successfully"
 
+echo "Github repository - https://github.com/bwalia/devops.git"
+
 sleep 10

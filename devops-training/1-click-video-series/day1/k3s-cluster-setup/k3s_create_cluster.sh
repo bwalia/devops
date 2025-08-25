@@ -89,3 +89,5 @@ fi
 echo "[✓] /etc/hosts updated."
 
 open http://$K3S_LB_IP
+
+echo "Visit this Github repository for more details - https://github.com/bwalia/devops.git"
