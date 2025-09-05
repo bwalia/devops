@@ -50,9 +50,9 @@ echo "Github repository - https://github.com/bwalia/devops.git"
 
 echo "The minio instance is up and running."
 
-echo "You can access the Minio Console at: https://$ENV_REF-s3.workstation.co.uk"
+echo "You can access the Minio Console at: https://$ENV_UI_ENDPOINT"
 
-echo "You can access the Minio S3 API at: https://$ENV_REF-s3-cli.workstation.co.uk"
+echo "You can access the Minio S3 API at: https://$ENV_API_ENDPOINT"
 
 echo "You can copy files to the Minio S3 bucket using the following command:"
 
