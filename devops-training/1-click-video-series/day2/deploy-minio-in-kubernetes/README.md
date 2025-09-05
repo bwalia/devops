@@ -1,9 +1,10 @@
 ### Infrastructure Setup - Day 2 - Typical Task 2
 
 #   Here is a simple **bash script** `minio-deploy.sh` to create minio instance in Kubernetes.
-#   Typically you would use this script for **k3s** kubernetes cluster on prem or dev test cluster. However the process should work with EKS/GKE/AKS just update the storage class and other parameters accordingly.
+#   Typically you would use this script for **k3s** kubernetes cluster on prem or dev test cluster. However the process should work with...
+#   ...EKS/GKE/AKS just update the storage class and other parameters accordingly.
 #   This script will also create the necessary pvc in longhorn storage class on prem
-
+#   Note the kubernetes node must have a label app=minio as the deployment manifest has nodeAffinity set to deploy s3 minio on dedicated nodes for s3
 ---
 
 #!/bin/bash

@@ -18,6 +18,20 @@ PASSWORD=$(head -c 16 /dev/urandom | base64 | tr -dc 'a-zA-Z0-9')
 # Display the password
 echo "Minio Admin user: minioadmin and password is: $PASSWORD"
 
+if [ "$ENV_REF" == "prod" ]; then
+    ENV_UI_ENDPOINT=s3.workstation.co.uk
+    ENV_API_ENDPOINT=s3-cli.workstation.co.uk
+        elif [ "$ENV_REF" == "test" ]; then
+        ENV_UI_ENDPOINT=$ENV_REF-s3.workstation.co.uk
+        ENV_API_ENDPOINT=$ENV_REF-s3-cli.workstation.co.uk
+            elif [ "$ENV_REF" == "acc" ]; then
+            ENV_UI_ENDPOINT=$ENV_REF-s3.workstation.co.uk
+            ENV_API_ENDPOINT=$ENV_REF-s3-cli.workstation.co.uk
+        elif [ "$ENV_REF" == "dev" ]; then
+        ENV_UI_ENDPOINT=$ENV_REF-s3.workstation.co.uk
+        ENV_API_ENDPOINT=$ENV_REF-s3-cli.workstation.co.uk
+fi
+
 helm upgrade --install -f minio-helm-chart/values.yaml minio-$ENV_REF ./minio-helm-chart \
       --set-string namespaceRef="$ENV_REF" \
       --set-string pvStorageClass="longhorn" \
@@ -26,8 +40,8 @@ helm upgrade --install -f minio-helm-chart/values.yaml minio-$ENV_REF ./minio-he
       --set secrets.MINIO_ROOT_PASSWORD=$PASSWORD \
       --set secrets.MINIO_BROWSER_REDIRECT_URL=https://$ENV_REF-s3.workstation.co.uk \
       --set secrets.MINIO_DEFAULT_BUCKETS=test-images \
-      --set-string "uiIngress.hosts[0].host=$ENV_REF-s3.workstation.co.uk" \
-      --set-string "cliIngress.hosts[0].host=$ENV_REF-s3-cli.workstation.co.uk" \
+      --set-string "uiIngress.hosts[0].host=$ENV_UI_ENDPOINT" \
+      --set-string "cliIngress.hosts[0].host=$ENV_API_ENDPOINT" \
       --namespace $ENV_REF --create-namespace
 
 echo "The minio is deployed into Kubernetes successfully in the $ENV_REF namespace."
