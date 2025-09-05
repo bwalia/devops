@@ -1,3 +1,11 @@
+### Infrastructure Setup - Day 2 - Typical Task 2
+
+#   Here is a simple **bash script** `minio-deploy.sh` to create minio instance in Kubernetes.
+#   Typically you would use this script for **k3s** kubernetes cluster on prem or dev test cluster. However the process should work with EKS/GKE/AKS just update the storage class and other parameters accordingly.
+#   This script will also create the necessary pvc in longhorn storage class on prem
+
+---
+
 #!/bin/bash
 
 if [ -z "$1" ]; then
@@ -33,3 +41,23 @@ echo "The minio is deployed into Kubernetes successfully in the $ENV_REF namespa
 
 echo "Github repository - https://github.com/bwalia/devops.git"
 
+
+---
+
+### Note: To test copy a file to newly created bucket run
+
+Run the following command:
+
+```bash
+./minio-copy-test.sh env password
+```
+
+---
+
+### Note: To destroy the minio instance
+
+Run the following command:
+
+```bash
+./minio-destroy.sh
+```
