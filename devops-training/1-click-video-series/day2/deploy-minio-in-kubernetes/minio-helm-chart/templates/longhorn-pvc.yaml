@@ -10,4 +10,4 @@ spec:
     requests:
       storage: {{ .Values.pvcStorageSize }}
       # Example 1Gi
-  storageClassName: longhorn
+  storageClassName: {{ .Values.pvStorageClass }}

@@ -20,6 +20,7 @@ echo "Minio Admin user: minioadmin and password is: $PASSWORD"
 
 helm upgrade --install -f minio-helm-chart/values.yaml minio-$ENV_REF ./minio-helm-chart \
       --set-string namespaceRef="$ENV_REF" \
+      --set-string pvStorageClass="longhorn" \
       --set-string pvcStorageSize="1Gi" \
       --set secrets.MINIO_ROOT_USER=minioadmin \
       --set secrets.MINIO_ROOT_PASSWORD=$PASSWORD \

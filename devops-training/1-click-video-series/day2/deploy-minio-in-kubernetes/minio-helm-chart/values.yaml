@@ -8,6 +8,8 @@ secrets:
   MINIO_DEFAULT_BUCKETS: ""
 
 namespaceRef: test
+
+pvStorageClass: "local-path"
 pvcStorageSize: "1Gi"
 # Example 1Gi add by default and override at runtime via helm cli
 
