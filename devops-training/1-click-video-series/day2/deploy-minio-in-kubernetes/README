@@ -1,7 +1,9 @@
-### Infrastructure Setup - Day 1 - Typical Task 1
+### Infrastructure Setup - Day 2 - Typical Task 2
 
-#   Here is a simple **bash script** `infra_provision_vms.sh` to create latest ubuntu VMs on a Mac using multipass.
-#   Typically you would use this script for **k3s** kubernetes cluster.
+#   Here is a simple **bash script** `minio-deploy.sh` to create minio instance in Kubernetes.
+#   Typically you would use this script for **k3s** kubernetes cluster on prem or dev test cluster. However the process should work with EKS/GKE/AKS just update the storage class and other parameters accordingly.
+#   This script will also create the necessary pvc in longhorn storage class on prem
+
 ---
 
 #!/bin/bash
