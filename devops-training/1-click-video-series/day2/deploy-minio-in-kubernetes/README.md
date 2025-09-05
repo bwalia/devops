@@ -44,7 +44,7 @@ echo "Github repository - https://github.com/bwalia/devops.git"
 
 ---
 
-### Note: To test copy a file to newly created bucket run
+### Note: To test copying a file to newly created bucket run
 
 Run the following command:
 
