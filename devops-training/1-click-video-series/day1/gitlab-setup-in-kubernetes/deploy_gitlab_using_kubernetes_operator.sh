@@ -66,7 +66,7 @@ RUNNER_DOCKER_IMAGE_TAG=alpine3.19-x86_64-bleeding
 # Example: kubectl get secret gitlab-gitlab-runner-secret -n gitlab-system -ojsonpath='{.data.runner-registration-token}' | base64 -d
 
 # REGISTRATION_TOKEN=<your_registration_token>
-REGISTRATION_TOKEN="" # replace with your token
+REGISTRATION_TOKEN="glrt-your-gitlab-project-runner-token" # replace with your token
 
 cat > config-runner-alpine.yaml << EOF
 gitlabUrl: ${GITLAB_URL}
@@ -112,7 +112,7 @@ helm upgrade --install --namespace gitlab-runner gitlab-runner-alpine -f config-
 sleep 10
 
 # REGISTRATION_TOKEN=<your_registration_token>
-REGISTRATION_TOKEN=""
+REGISTRATION_TOKEN="glrt-your-gitlab-project-runner-token"
 
 cat > config-runner-ubuntu.yaml << EOF
 gitlabUrl: ${GITLAB_URL}
