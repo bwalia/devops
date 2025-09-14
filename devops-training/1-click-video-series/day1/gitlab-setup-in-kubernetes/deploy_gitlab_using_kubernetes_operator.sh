@@ -38,18 +38,18 @@ echo ""
 
 echo "To obtain full working code examples, visit: https://github.com/bwalia/devops.git"
 
-cat > gitlab-runner-secret.yml << EOF
-apiVersion: v1
-kind: Secret
-metadata:
-  name: gitlab-runner-secret
-type: Opaque
-# Only one of the following fields can be set. The Operator fails to register the runner if both are provided.
-# NOTE: runner-registration-token is deprecated and will be removed in GitLab 18.0. You should use runner-token instead.
-stringData:
-  runner-token: REPLACE_ME # your project runner token
-  # runner-registration-token: "" # your project runner secret
-EOF
+# cat > gitlab-runner-secret.yml << EOF
+# apiVersion: v1
+# kind: Secret
+# metadata:
+#   name: gitlab-runner-secret
+# type: Opaque
+# # Only one of the following fields can be set. The Operator fails to register the runner if both are provided.
+# # NOTE: runner-registration-token is deprecated and will be removed in GitLab 18.0. You should use runner-token instead.
+# stringData:
+#   runner-token: REPLACE_ME # your project runner token
+#   # runner-registration-token: "" # your project runner secret
+# EOF
 
 # helm install gitlab-runner gitlab/gitlab-runner \
 #   --namespace gitlab-runner \
