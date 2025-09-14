@@ -66,7 +66,7 @@ RUNNER_DOCKER_IMAGE_TAG=alpine3.19-x86_64-bleeding
 # Example: kubectl get secret gitlab-gitlab-runner-secret -n gitlab-system -ojsonpath='{.data.runner-registration-token}' | base64 -d
 
 # REGISTRATION_TOKEN=<your_registration_token>
-REGISTRATION_TOKEN="glrt-Dn45apgRT5SWIGyeKwFG3G86MQpwOjIKdDozCnU6MQ8.01.171x3cegy"
+REGISTRATION_TOKEN="<your_registration_token>"
 
 cat > config-runner-alpine.yaml << EOF
 gitlabUrl: ${GITLAB_URL}
