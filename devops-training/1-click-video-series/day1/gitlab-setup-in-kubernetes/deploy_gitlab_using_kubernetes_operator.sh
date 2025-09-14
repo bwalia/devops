@@ -59,7 +59,7 @@ EOF
 # For example config-runner-ubuntu.yaml below is another runner with ubuntu image
 # You can also create your own custom docker image with all the tools you need in your CI
 GITLAB_URL=http://gitlab-webservice-default.gitlab-system.svc.cluster.local:8080/
-RUNNER_CONCURRENT=10
+RUNNER_CONCURRENT=2
 RUNNER_DOCKER_IMAGE_TAG=alpine3.19-x86_64-bleeding
 # Obtain the registration token from GitLab UI or API
 # or via kubectl if you have access to the GitLab instance
