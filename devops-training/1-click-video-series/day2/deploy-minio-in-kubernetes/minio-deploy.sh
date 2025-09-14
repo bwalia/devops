@@ -18,6 +18,8 @@ PASSWORD=$(head -c 16 /dev/urandom | base64 | tr -dc 'a-zA-Z0-9')
 # Display the password
 echo "Minio Admin user: minioadmin and password is: $PASSWORD"
 
+echo $PASSWORD > /tmp/minio-credentials-$ENV_REF.txt
+
 if [ "$ENV_REF" == "prod" ]; then
     ENV_UI_ENDPOINT=s3.workstation.co.uk
     ENV_API_ENDPOINT=s3-cli.workstation.co.uk

@@ -76,7 +76,6 @@ echo "sudo sh -c 'echo \"$K3S_LB_IP $HOSTNAME\" >> /etc/hosts'"
 
 bash $PWD/k3s-cluster-setup/k3s_update_lb_ip_in_localdns.sh
 
-
 # Check if the entry already exists
 if grep -q "$HOSTNAME" /etc/hosts; then
     echo "[+] Updating existing entry for $HOSTNAME"
