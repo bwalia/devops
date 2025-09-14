@@ -1,0 +1,22 @@
+gitlabUrl: http://gitlab-webservice-default.gitlab-system.svc.cluster.local:8080/
+runnerRegistrationToken: "glrt-your-gitlab-project-runner-token"
+concurrent: 2
+rbac:
+  create: true
+
+runners:
+  secret: gitlab-runner-ubuntu-secret
+  config: |
+    [[runners]]
+      [runners.kubernetes]
+        namespace = "gitlab-runner"
+        image = "ubuntu:22.04"
+        privileged = true
+      [[runners.kubernetes.volumes.empty_dir]]
+        name = "docker-certs"
+        mount_path = "/certs/client"
+        medium = "Memory"
+
+  ## Specify the name for the runner.
+  name: "gitlab-runner-ubuntu"
+

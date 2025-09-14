@@ -50,3 +50,4 @@ RUNNER_CONCURRENT=2 # set RUNNER_CONCURRENT to number of concurrent runners you 
 
 # Study bash file deploy_gitlab_using_kubernetes_operator.sh
 
+# Github repo url: https://github.com/bwalia/devops.git

@@ -31,6 +31,13 @@ kubectl -n gitlab-system apply -f deploy_gitlab_server.yaml
 # sed -i '' "s/CLUSTER_IP_PLACEHOLDER/$LB_IP/g" gitlab-runner-values.yaml
 # sed -i '' "s/\${ARCH}/$ARCH/g" gitlab-runner-values.yaml
 
+echo "To obtain root user password for gitlab, run:"
+echo "kubectl get secrets gitlab-gitlab-initial-root-password -n gitlab-system -o json | jq -r .data.password | base64 -d"
+
+echo ""
+
+echo "To obtain full working code examples, visit: https://github.com/bwalia/devops.git"
+
 cat > gitlab-runner-secret.yml << EOF
 apiVersion: v1
 kind: Secret
