@@ -112,7 +112,7 @@ helm upgrade --install --namespace gitlab-runner gitlab-runner-alpine -f config-
 sleep 10
 
 # REGISTRATION_TOKEN=<your_registration_token>
-REGISTRATION_TOKEN="glrt-Dn45apgRT5SWIGyeKwFG3G86MQpwOjIKdDozCnU6MQ8.01.171x3cegy"
+REGISTRATION_TOKEN=""
 
 cat > config-runner-ubuntu.yaml << EOF
 gitlabUrl: ${GITLAB_URL}
