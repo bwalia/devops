@@ -36,7 +36,7 @@ echo "kubectl get secrets gitlab-gitlab-initial-root-password -n gitlab-system -
 
 echo ""
 
-echo "To obtain full working code examples, visit: https://github.com/bwalia/devops.git"
+echo "Github repository - https://github.com/bwalia/devops.git"
 
 # cat > gitlab-runner-secret.yml << EOF
 # apiVersion: v1
